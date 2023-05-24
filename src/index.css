@@ -8,6 +8,10 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+#root {
+  position: relative;
+}
+
 @font-face {
   font-family: "EuclidSquare";
   font-weight: 400;
