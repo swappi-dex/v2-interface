@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "EuclidSquare", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@font-face {
+  font-family: "EuclidSquare";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url(/fonts/EuclidSquare-Regular.woff)
+      format("woff supports variations(gvar)"),
+    url(/fonts/EuclidSquare-Regular.woff) format("woff-variations"),
+    url(/fonts/EuclidSquare-Regular.woff) format("woff");
+}
+@font-face {
+  font-family: "EuclidSquare";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url(/fonts/EuclidSquare-Medium.woff)
+      format("woff supports variations(gvar)"),
+    url(/fonts/EuclidSquare-Medium.woff) format("woff-variations"),
+    url(/fonts/EuclidSquare-Medium.woff) format("woff");
+}
+@font-face {
+  font-family: "EuclidSquare";
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+  src: url(/fonts/EuclidSquare-Bold.woff)
+      format("woff supports variations(gvar)"),
+    url(/fonts/EuclidSquare-Bold.woff) format("woff-variations"),
+    url(/fonts/EuclidSquare-Bold.woff) format("woff");
+}
