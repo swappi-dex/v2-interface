@@ -85,10 +85,11 @@ export function Header(props: PropsWithChildren<{}>) {
                 .filter((item) => {
                   return item.path !== "/";
                 })
-                .map((item) => {
+                .map((item, index) => {
                   const isFocus = item.path === location.pathname;
                   return (
                     <a
+                      key={index}
                       className={`capitalize font-medium dark:text-white ${
                         isFocus ? "text-[#7fbf4e] active" : "text-ink-green"
                       }`}

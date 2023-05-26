@@ -1,12 +1,14 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { Header } from "./headers";
 import { config } from "./config";
+import Footer from "./footer";
 
 function withHeader(ele: JSX.Element) {
   return (
     <>
       <Header />
       {ele}
+      <Footer />
     </>
   );
 }
