@@ -15,6 +15,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      lineHeight: {
+        inherit: 'inherit'
+      },
       spacing,
       colors: {
         "ink-green": "#2A3D4A",
