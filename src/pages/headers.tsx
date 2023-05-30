@@ -3,12 +3,36 @@ import { useLocation } from "react-router-dom";
 import { config } from "./config";
 import { useAccount, connect } from "@cfxjs/use-wallet-react/ethereum";
 
+function NetworkInfo() {
+  return (
+    <button className="hidden sm:flex flex-row items-center ml-1.5  py-1.5 px-1 md:px-2 h-8 text-sm border-none rounded-3xl ">
+      <div className="hidden xl:block mr-1 tracking-[2px] truncate sm:w-[80px] sm:overflow-ellipsis font-medium text-ink-green text-[15px]">
+        Conflux eSpace Testnet
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-4"
+      >
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+    </button>
+  );
+}
+
 export function Header(props: PropsWithChildren<{}>) {
   const location = useLocation();
   const account = useAccount();
   return (
     <>
-      <header className="relative z-1">
+      <header className="relative z-1 sm:pt-0 pt-1">
         <div className="hidden lg:flex w-full h-18 flex-row justify-center bg-medigreen">
           <div className="flex items-center">
             <div className="flex rounded-3xl bg-[#DACFCE] bg-opacity-20 py-2.5 px-7 ml-2 space-x-1">
@@ -111,26 +135,7 @@ export function Header(props: PropsWithChildren<{}>) {
                 $ 8537.62
               </span>
             </div>
-            <button className="hidden sm:flex flex-row items-center ml-1.5  py-1.5 px-1 md:px-2 h-8 text-sm border-none rounded-3xl ">
-              <div className="hidden xl:block mr-1 tracking-[2px] truncate sm:w-[80px] sm:overflow-ellipsis font-medium text-ink-green text-[15px]">
-                Conflux eSpace Testnet
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-4"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
-
+            <NetworkInfo />
             {!account && (
               <button
                 onClick={connect}

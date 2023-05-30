@@ -5,7 +5,7 @@ export default function Swap() {
         boxShadow:
           "0px 4px 20px rgba(42, 61, 74, 0.1), 0px 40px 106px 11px rgba(159, 234, 225, 0.15)",
       }}
-      className="max-w-[485px] mx-auto lg:mt-15 mt-33 rounded-ss-2xl rounded-ee-2xl overflow-hidden"
+      className="max-w-[485px] sm:mx-auto mx-3 lg:mt-15 sm:mt-33 mt-14.5 rounded-ss-2xl rounded-ee-2xl overflow-hidden"
     >
       <div className="flex pt-5 px-1 justify-between">
         <div className="flex justify-center w-full space-x-5 sm:space-x-6 md:space-x-20 sm:ml-10 ml-5">
