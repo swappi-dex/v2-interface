@@ -1,4 +1,6 @@
-const MainnetAddress = [
+export type TokenInfo = Record<"name" | "address" | "symbol", string>;
+
+const MainnetTokenInfos: TokenInfo[] = [
   {
     name: "Wrapped CFX",
     address: "0x14b2D3bC65e74DAE1030EAFd8ac30c533c976A9b",
@@ -96,7 +98,7 @@ const MainnetAddress = [
   },
 ];
 
-const TestnetAddress = [
+const TestnetTokenInfos: TokenInfo[] = [
   {
     name: "Wrapped CFX",
     address: "0x2ED3dddae5B2F321AF0806181FBFA6D049Be47d8",
@@ -194,11 +196,29 @@ const TestnetAddress = [
   },
 ];
 
-export const TokenAddress =
-  import.meta.env.MODE === "production" ? MainnetAddress : TestnetAddress;
+export const TokenInfos =
+  import.meta.env.MODE === "production" ? MainnetTokenInfos : TestnetTokenInfos;
+
+// 地址 map 到 info
+export const TokenAddressMap: Record<string, TokenInfo> = TokenInfos.reduce(
+  (obj, token) => {
+    obj[token.address] = token;
+    return obj;
+  },
+  {} as Record<string, TokenInfo>
+);
+
+// symbol map 到 info
+export const TokenSymbolMap: Record<string, TokenInfo> = TokenInfos.reduce(
+  (obj, token) => {
+    obj[token.symbol] = token;
+    return obj;
+  },
+  {} as Record<string, TokenInfo>
+);
 
 export const baseTokenSymbols = ["CFX", "WBTC", "ETH", "USDT"];
 
-export const baseTokens = TokenAddress.filter((i) =>
-  baseTokenSymbols.includes(i.symbol)
+export const baseTokensInfo = baseTokenSymbols.map(
+  (symbol) => TokenSymbolMap[symbol]
 );
