@@ -1,5 +1,3 @@
-import { useRequest } from "ahooks";
-import { BrowserProvider } from "ethers";
 import { useLocation } from "react-router-dom";
 
 const links = [
@@ -209,28 +207,15 @@ function SocialMediaLinks() {
 }
 
 function BlockNumber() {
-  const { data, loading } = useRequest(
-    async () => {
-      const [blockNumber] = await Promise.all([
-        new BrowserProvider(window.ethereum).getBlockNumber(),
-        sleep(1000),
-      ]);
-
-      return blockNumber;
-    },
-    {
-      pollingInterval: 2000,
-    }
-  );
   return (
     <div className="sm:flex hidden flex-row items-center">
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href={`https://evmtestnet.confluxscan.io/block/${data}`}
+        href={`https://evmtestnet.confluxscan.io/block/1`}
         className="group relative mr-0.5 text-[11px]  text-medigreenfont-medium"
       >
-        <span className="opacity-50">{data}&ensp;</span>
+        <span className="opacity-50">1&ensp;</span>
         <div className="group-hover:flex hidden absolute z-10 bottom-full left-1/2 pb-1 flex-col items-center -translate-x-1/2">
           <div className="px-4 py-2 rounded-[8px] max-w-[256px] w-max text-base leading-6 font-normal text-[#e2e8f0] bg-medigreen">
             The most recent block number on this network. Prices update on every
@@ -243,7 +228,7 @@ function BlockNumber() {
         <div className="w-2 h-2 rounded-full bg-lime" />
         <div
           className={`${
-            loading ? "opacity-100" : "opacity-0"
+            false ? "opacity-100" : "opacity-0"
           } absolute inset-0 animate-spin rounded-full border border-l-2 border-transparent border-l-lime`}
         />
       </div>

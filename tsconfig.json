@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ES2021",
+    "useDefineForClassFields": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -15,17 +16,19 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@utils/*": ["./src/utils/*"],
       "@modules/*": ["./src/modules/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"],
+      "@router/*": ["./src/router/*"],
       "@components/*": ["./src/components/*"],
-      "@contract/*": ["./src/contract/*"],
+      "@service/*": ["./src/service/*"],
+      "@contracts/*": ["./src/contracts/*"]
     }
   },
   "include": ["src"],

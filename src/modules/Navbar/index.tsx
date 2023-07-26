@@ -1,7 +1,9 @@
 import { PropsWithChildren } from "react";
-import { useLocation } from "react-router-dom";
-import { config } from "./config";
-import { useAccount, connect } from "@cfxjs/use-wallet-react/ethereum";
+import {  NavLink } from "react-router-dom";
+import cx from "clsx";
+import { useAccount, connect } from "@cfx-kit/react-utils/dist/AccountManage";
+import { walletsName } from '@service/account';
+import { routerConfig } from "@router/index";
 
 function NetworkInfo() {
   return (
@@ -27,9 +29,8 @@ function NetworkInfo() {
   );
 }
 
-export function Header(props: PropsWithChildren<{}>) {
-  const location = useLocation();
-  const account = useAccount();
+export default function Header(props: PropsWithChildren<{}>) {
+  const account = "0x1";
   return (
     <>
       <header className="relative z-1 sm:pt-0 pt-1">
@@ -105,25 +106,20 @@ export function Header(props: PropsWithChildren<{}>) {
               </div>
             </a>
             <div className="hidden space-x-8 md:flex lg:space-x-11 ml-3 mr-6 items-center">
-              {config
-                .filter((item) => {
-                  return item.path !== "/";
-                })
-                .map((item, index) => {
-                  const isFocus = item.path === location.pathname;
-                  return (
-                    <a
-                      key={index}
-                      className={`capitalize font-medium dark:text-white ${
-                        isFocus ? "text-[#7fbf4e] active" : "text-ink-green"
-                      }`}
-                      href={`#${item.path}`}
-                      aria-current="page"
-                    >
-                      {item.name || item.path.replaceAll("/", "")}
-                    </a>
-                  );
-                })}
+              {routerConfig.map((item, index) => (
+                <NavLink
+                  key={index}
+                  className={({ isActive }) =>
+                    cx(
+                      "capitalize font-medium dark:text-white",
+                      isActive ? "text-[#7fbf4e]" : "text-ink-green"
+                    )
+                  }
+                  to={item.path}
+                >
+                  {item?.name || item.path?.replaceAll?.("/", "")}
+                </NavLink>
+              ))}
             </div>
           </div>
           <div className="flex flex-row items-center space-x-2">
@@ -137,10 +133,7 @@ export function Header(props: PropsWithChildren<{}>) {
             </div>
             <NetworkInfo />
             {!account && (
-              <button
-                onClick={connect}
-                className="ml-1 px-3 h-[32px] rounded-3xl text-[15px] tracking-[2px] text-white font-normal bg-medigreen"
-              >
+              <button className="ml-1 px-3 h-[32px] rounded-3xl text-[15px] tracking-[2px] text-white font-normal bg-medigreen">
                 Connect Wallet
               </button>
             )}
