@@ -12,17 +12,32 @@ import SwappiNFTABI from "./abis/swappi-nft/SwappiNFT";
 import SwappiIdoplatformABI from "./abis/swappi-idoplatform/SwappiIdoplatform";
 export { createERC20Contract } from "@cfx-kit/dapp-utils/dist/contract";
 
+export const PPITokenContract = createContract({
+  address: isProduction
+    ? "0x22f41abf77905f50df398f21213290597e7414dd"
+    : "0x49916ba65d0048c4bbb0a786a527d98d10a1cd2d",
+  ABI: PPITokenABI,
+});
+
 // example
-// fetchChain<bigint>({
-//   url: 'https://evmtestnet.confluxrpc.com',
-//   params: [{
-//     data: ERC20Contract.encodeFunctionData('totalSupply', []),
-//     to: ERC20Contract.address,
-//   }],
-//   responseHandler: (res: string) => ERC20Contract.decodeFunctionResult('totalSupply', res)?.[0]
-// }).then((res) => {
-//   console.log(res);
-// });
+(function () {
+  const data = PPITokenContract.encodeFunctionData("balanceOf", [
+    "0x102e0fb8a5ED6E0f0899C3ed9896cb8973aA29bB",
+  ]);
+  console.log(data);
+  // fetchChain<bigint>({
+  //   url: import.meta.env.VITE_ESpaceRpcUrl,
+  //   params: [
+  //     {
+  //       data,
+  //       to: PPITokenContract.address,
+  //     },
+  //   ]
+  // })
+  //   .then((res) => {
+  //     return PPITokenContract.decodeFunctionResult("totalSupply", res)?.[0];
+  //   });
+})();
 
 export const SwappiFactoryContract = createContract({
   address: isProduction
@@ -40,13 +55,6 @@ export const createSwappiPairContract = (pairAddress: string) =>
     address: pairAddress,
     ABI: SwappiPairABI,
   });
-
-export const PPITokenContract = createContract({
-  address: isProduction
-    ? "0x22f41abf77905f50df398f21213290597e7414dd"
-    : "0x49916ba65d0048c4bbb0a786a527d98d10a1cd2d",
-  ABI: PPITokenABI,
-});
 
 export const FarmControllerContract = createContract({
   address: isProduction

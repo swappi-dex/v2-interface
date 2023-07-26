@@ -11,40 +11,12 @@ import LaunchpadPage from "@pages/Launchpad";
 import Navbar from "@modules/Navbar";
 import Footer from "@modules/Footer";
 
-export const routerConfig = [
-  {
-    path: "/swap",
-    name: "exchange",
-    element: <SwapPage />,
-  },
-  {
-    path: "/pool",
-    element: <LiquidityPage />,
-  },
-  {
-    path: "/farming",
-    element: <FarmingPage />,
-  },
-  {
-    path: "/staking",
-    element: <StakingPage />,
-  },
-  {
-    path: "/lottery",
-    element: <LotteryPage />,
-  },
-  {
-    path: "/launchpad",
-    element: <LaunchpadPage />,
-  },
-];
-
 const AppRouter: React.FC = () => {
   return (
     <TopLevelErrorBoundary>
       <Routes>
         <Route path="/" element={<RouteWrapper />}>
-          <Route path="swap" element={<SwapPage />} />
+          <Route index path="swap" element={<SwapPage />} />
           <Route path="pool" element={<LiquidityPage />} />
           <Route path="farming" element={<FarmingPage />} />
           <Route path="staking" element={<StakingPage />} />

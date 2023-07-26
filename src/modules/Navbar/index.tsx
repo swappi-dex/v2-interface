@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react";
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import cx from "clsx";
 import { useAccount, connect } from "@cfx-kit/react-utils/dist/AccountManage";
-import { walletsName } from '@service/account';
-import { routerConfig } from "@router/index";
+import { walletsName } from "@service/account";
+import routerConfig from "@router/routerConfig";
 
 function NetworkInfo() {
   return (
