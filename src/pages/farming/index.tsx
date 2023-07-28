@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Farming: React.FC = () => {
-  return (
-    <div>Farming</div>
-  )
-}
+  return <div>Farming</div>;
+};
 
 export default Farming;

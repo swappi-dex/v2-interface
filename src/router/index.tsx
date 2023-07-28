@@ -5,6 +5,7 @@ import TopLevelErrorBoundary from "@modules/TopLevelErrorBoundary";
 import SwapPage from "@pages/Swap";
 import LiquidityPage from "@pages/Liquidity";
 import FarmingPage from "@pages/Farming";
+import DualFarmingPage from "@pages/DualFarming";
 import StakingPage from "@pages/Staking";
 import LotteryPage from "@pages/Lottery";
 import LaunchpadPage from "@pages/Launchpad";
@@ -17,8 +18,19 @@ const AppRouter: React.FC = () => {
       <Routes>
         <Route path="/" element={<RouteWrapper />}>
           <Route index path="swap" element={<SwapPage />} />
-          <Route path="pool" element={<LiquidityPage />} />
-          <Route path="farming" element={<FarmingPage />} />
+          <Route path="pool/v2" element={<LiquidityPage />} />
+          <Route path="farming">
+            <Route path="farming" element={<FarmingPage />} />
+            <Route path="dual-farming" element={<DualFarmingPage />} />
+            <Route
+              path="/farming/*"
+              element={<Navigate to="/farming/farming" replace />}
+            />
+            <Route
+              path="/farming/"
+              element={<Navigate to="/farming/farming" replace />}
+            />
+          </Route>
           <Route path="staking" element={<StakingPage />} />
           <Route path="lottery" element={<LotteryPage />} />
           <Route path="launchpad" element={<LaunchpadPage />} />

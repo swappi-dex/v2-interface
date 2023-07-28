@@ -1,14 +1,24 @@
-
 const routerConfig = [
   {
-    path: "/swap",
     name: "exchange",
+    path: "/swap",
   },
   {
-    path: "/pool",
+    name: "liquidity",
+    path: "/pool/v2",
   },
   {
-    path: "/farming",
+    name: "farming",
+    children: [
+      {
+        name: "farming",
+        path: "/farming/farming",
+      },
+      {
+        name: "dual farming",
+        path: "/farming/dual-farming",
+      },
+    ],
   },
   {
     path: "/staking",

@@ -11,6 +11,13 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   --w3m-z-index: 100001 !important;
+  background: linear-gradient(
+    116.59deg,
+    #f5fdff -0.69%,
+    #ecfbfe 6.24%,
+    #fafce3 100%,
+    #fbffcf 100%
+  );
 }
 
 body {

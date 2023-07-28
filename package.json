@@ -17,6 +17,8 @@
     "@cfx-kit/ui-components": "^0.0.2",
     "@cfx-kit/utils": "^0.0.1",
     "@cfxjs/use-wallet-react": "0.0.2-2",
+    "@react-spring/web": "^9.7.3",
+    "@tippyjs/react": "^4.2.6",
     "clsx": "^2.0.0",
     "custom-react-scrollbar": "^0.0.4",
     "dayjs": "^1.11.9",
