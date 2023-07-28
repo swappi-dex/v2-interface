@@ -22,18 +22,26 @@ const AppRouter: React.FC = () => {
           <Route path="farming">
             <Route path="farming" element={<FarmingPage />} />
             <Route path="dual-farming" element={<DualFarmingPage />} />
-            <Route
-              path="/farming/*"
-              element={<Navigate to="/farming/farming" replace />}
-            />
-            <Route
-              path="/farming/"
-              element={<Navigate to="/farming/farming" replace />}
-            />
           </Route>
           <Route path="staking" element={<StakingPage />} />
           <Route path="lottery" element={<LotteryPage />} />
           <Route path="launchpad" element={<LaunchpadPage />} />
+          <Route
+            path="/farming/*"
+            element={<Navigate to="/farming/farming" replace />}
+          />
+          <Route
+            path="/farming/"
+            element={<Navigate to="/farming/farming" replace />}
+          />
+          <Route
+            path="/dual-farming/*"
+            element={<Navigate to="/farming/dual-farming" replace />}
+          />
+          <Route
+            path="/dual-farming/"
+            element={<Navigate to="/farming/dual-farming" replace />}
+          />
           <Route path="*" element={<Navigate to="/swap" replace />} />
           <Route path="/" element={<Navigate to="/swap" replace />} />
         </Route>
