@@ -45,7 +45,7 @@ const NavMenu: React.FC = () => {
     }
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [hideDropdown]);
   return (
     <div className="hidden space-x-8 md:flex lg:space-x-11 ml-3 mr-6 items-center">
       {routerConfig.map((item, index) => (
