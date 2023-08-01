@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CertikLogo from "@assets/images/certik.svg";
 import { ReactComponent as GithubIcon } from "@assets/icons/github.svg";
 import { ReactComponent as TelegramIcon } from "@assets/icons/telegram.svg";

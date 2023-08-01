@@ -6,7 +6,7 @@ import './index.css';
 
 export interface Props extends ComponentProps<'button'> {
   variant?: 'contained' | 'text' | 'outlined';
-  color?: 'gradient-blue' | 'gray' | 'transparent';
+  color?: 'medigreen' | 'gray' | 'transparent';
   fullWidth?: boolean;
   loading?: boolean | 'start' | 'end';
   icon?: ReactNode;
@@ -19,7 +19,7 @@ export interface Props extends ComponentProps<'button'> {
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
   (
-    { children, className, contentClassName, variant = 'contained', color = 'gradient-blue', disabled = false, fullWidth = false, loading = false, icon, startIcon, endIcon, ...props },
+    { children, className, contentClassName, variant = 'contained', color = 'medigreen', disabled = false, fullWidth = false, loading = false, icon, startIcon, endIcon, ...props },
     _forwardRef
   ) => {
     return createElement(

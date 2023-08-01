@@ -1,10 +1,10 @@
-import { useAccount, connect } from "@cfx-kit/react-utils/dist/AccountManage";
-import { walletsName } from "@service/account";
+import { useAccount } from "@cfx-kit/react-utils/dist/AccountManage";
 import SwappiLogo from "@assets/images/swappi.svg";
 import PPILogo from "@assets/images/ppi.svg";
 import { ReactComponent as ArrowRightIcon } from "@assets/icons/arrow-right.svg";
 import AssetsLink from "./AssetsLink";
 import NavMenu from "./NavMenu";
+import AuthConnectButton from "@modules/AuthConnectButton";
 
 const NetworkInfo: React.FC = () => {
   return (
@@ -47,6 +47,7 @@ const NavBar: React.FC = () => {
         </div>
 
         <NetworkInfo />
+        <AuthConnectButton />
 
         {!account && (
           <button className="ml-1 px-3 h-[32px] rounded-3xl text-[15px] tracking-[2px] text-white font-normal bg-medigreen">
