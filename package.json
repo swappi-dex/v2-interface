@@ -19,6 +19,8 @@
     "@cfxjs/use-wallet-react": "0.0.2-2",
     "@react-spring/web": "^9.7.3",
     "@tippyjs/react": "^4.2.6",
+    "@zag-js/dialog": "^0.13.0",
+    "@zag-js/react": "^0.13.0",
     "clsx": "^2.0.0",
     "custom-react-scrollbar": "^0.0.4",
     "dayjs": "^1.11.9",
