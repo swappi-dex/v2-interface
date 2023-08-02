@@ -1,13 +1,21 @@
-import React from 'react';
-import Modal from '@cfx-kit/ui-components/dist/Modal';
-import '@cfx-kit/ui-components/dist/Modal.css';
+import Modal from "@cfx-kit/ui-components/dist/Modal";
+import "@cfx-kit/ui-components/dist/Modal.css";
+import { useState } from "react";
 
-function AccountConnector() {
+// const AccountConnector: React.FC<{ isOpen: boolean; setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }> = ({
+//   isOpen,
+//   setIsOpen,
+// }) => {
+const AccountConnector: React.FC = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <div>
-      AccountConnector
-    </div>
+    <>
+      <button onClick={() => setOpen(true)}>open</button>
+      <Modal open={open}>
+        <button onClick={() => setOpen(false)}>close</button>
+      </Modal>
+    </>
   );
-}
+};
 
 export default AccountConnector;
