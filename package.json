@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@cfx-kit/dapp-components": "^0.0.3",
-    "@cfx-kit/dapp-utils": "^0.0.4",
+    "@cfx-kit/dapp-utils": "^0.0.5",
     "@cfx-kit/react-utils": "^0.0.2",
     "@cfx-kit/ui-components": "^0.0.4",
     "@cfx-kit/utils": "^0.0.1",

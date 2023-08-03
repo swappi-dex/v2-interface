@@ -117,16 +117,12 @@ const FooterMenu: React.FC = () => {
   return (
     <div className="grid grid-flow-col gap-2 h-12 p-1 rounded-xl bg-white">
       {menus.map((item, index) => (
-        <>
+        <div key={index}>
           {item.children && (
             <DropDownMenu
               menuList={item.children}
               menuName={item.name}
-              match={
-                item.name === "Farming"
-                  ? !!matchFarming
-                  : !!(matchStaking || matchLottery || matchLiquidity)
-              }
+              match={item.name === "Farming" ? !!matchFarming : !!(matchStaking || matchLottery || matchLiquidity)}
             />
           )}
 
@@ -144,7 +140,7 @@ const FooterMenu: React.FC = () => {
               {item?.name || item.path?.replaceAll?.("/", "")}
             </NavLink>
           )}
-        </>
+        </div>
       ))}
     </div>
   );

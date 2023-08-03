@@ -1,9 +1,4 @@
-import {
-  useAccount,
-  useChainId,
-  connect,
-  switchChain,
-} from "@cfx-kit/react-utils/dist/AccountManage";
+import { useAccount, useChainId, connect, switchChain } from "@cfx-kit/react-utils/dist/AccountManage";
 
 const eSpaceChainId = `${import.meta.env.VITE_ESpaceChainId}`;
 const useAuthConnect = () => {
@@ -11,9 +6,9 @@ const useAuthConnect = () => {
   const chainId = useChainId();
   const isChainMatch = chainId === eSpaceChainId;
 
-  const authConnectStatus = account ? isChainMatch ? "connected" : "not-chainMatch" : "not-connected";
+  const authConnectStatus = account ? (isChainMatch ? "connected" : "not-chainMatch") : "not-connected";
 
-  return authConnectStatus;
+  return { authConnectStatus, account };
 };
 export const handleConnect = (walletName: string) => {
   connect(walletName);

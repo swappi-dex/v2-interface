@@ -1,7 +1,5 @@
 :root {
-  font-family: "EuclidSquare", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: EuclidSquare, sans-serif;
   font-weight: 400;
 
   font-synthesis: none;
@@ -11,13 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   --w3m-z-index: 100001 !important;
-  background: linear-gradient(
-    116.59deg,
-    #f5fdff -0.69%,
-    #ecfbfe 6.24%,
-    #fafce3 100%,
-    #fbffcf 100%
-  );
+  background: linear-gradient(116.59deg, #f5fdff -0.69%, #ecfbfe 6.24%, #fafce3 100%, #fbffcf 100%);
 }
 
 body {
@@ -27,25 +19,34 @@ body {
 .scrollbar__thumb {
   @apply bg-black-normal;
 }
+button {
+  font-family: "EuclidSquare";
+}
 
 @font-face {
   font-family: "EuclidSquare";
   font-weight: 400;
   font-style: normal;
   font-display: block;
-  src: url(/fonts/EuclidSquare-Regular.woff2) format("woff2");
+  src: url(@assets/fonts/EuclidSquare-Regular.woff) format("woff supports variations(gvar)"),
+    url(@assets/fonts/EuclidSquare-Regular.woff) format("woff-variations"),
+    url(@assets/fonts/EuclidSquare-Regular.woff) format("woff");
 }
 @font-face {
   font-family: "EuclidSquare";
   font-weight: 500;
   font-style: normal;
   font-display: block;
-  src: url(/fonts/EuclidSquare-Medium.woff2) format("woff2");
+  src: url(@assets/fonts/EuclidSquare-Medium.woff) format("woff supports variations(gvar)"),
+    url(@assets/fonts/EuclidSquare-Medium.woff) format("woff-variations"),
+    url(@assets/fonts/EuclidSquare-Medium.woff) format("woff");
 }
 @font-face {
   font-family: "EuclidSquare";
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
   font-display: block;
-  src: url(/fonts/EuclidSquare-Bold.woff2) format("woff2");
+  src: url(@assets/fonts/EuclidSquare-Bold.woff) format("woff supports variations(gvar)"),
+    url(@assets/fonts/EuclidSquare-Bold.woff) format("woff-variations"),
+    url(@assets/fonts/EuclidSquare-Bold.woff) format("woff");
 }

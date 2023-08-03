@@ -49,18 +49,13 @@ const NavMenu: React.FC = () => {
   return (
     <div className="hidden space-x-8 md:flex lg:space-x-11 mr-6 items-center">
       {routerConfig.map((item, index) => (
-        <>
+        <div key={index}>
           {item.children && (
             <Dropdown
               visible={visible}
               onClickOutside={hideDropdown}
               offset={[20, 30]}
-              Content={
-                <FarmingMenu
-                  farmingMenu={item.children}
-                  hideDropdown={hideDropdown}
-                />
-              }
+              Content={<FarmingMenu farmingMenu={item.children} hideDropdown={hideDropdown} />}
             >
               <div
                 className={cx(
@@ -88,7 +83,7 @@ const NavMenu: React.FC = () => {
               {item?.name || item.path?.replaceAll?.("/", "")}
             </NavLink>
           )}
-        </>
+        </div>
       ))}
     </div>
   );

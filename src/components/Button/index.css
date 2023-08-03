@@ -1,6 +1,6 @@
 /** common **/
 .button {
-  @apply relative inline-flex justify-center items-center whitespace-nowrap outline-none transition-colors transition-opacity font-medium no-underline cursor-pointer;
+  @apply relative inline-flex justify-center items-center whitespace-nowrap outline-none transition-colors transition-opacity no-underline cursor-pointer;
 }
 
 button.button {
@@ -13,6 +13,10 @@ button.absolute {
 
 .button--fullWidth {
   @apply flex w-full;
+}
+
+.button--normal {
+  @apply h-[36px] text-[15px] font-medium rounded-3xl px-3 tracking-[2px];
 }
 
 /** disabled & loading **/
@@ -40,7 +44,8 @@ button.button--text.is-disabled {
   @apply border-none;
 }
 
-.button--contained.button--gradient-blue:not(.is-disabled), .button--contained.button--gradient-blue.is-loading {
+.button--contained.button--gradient-blue:not(.is-disabled),
+.button--contained.button--gradient-blue.is-loading {
   @apply text-black-normal bg-linear-blue;
 }
 
@@ -48,7 +53,35 @@ button.button--text.is-disabled {
 .button--contained.button--gradient-blue:hover:not(.is-loading),
 .button--contained.button--gradient-blue:focus-visible:not(.is-disabled),
 .button--contained.button--gradient-blue:focus-visible:not(.is-loading) {
-  background: linear-gradient(90deg, #A8DAFF 0%, #B6FFF9 100%);;
+  background: linear-gradient(90deg, #a8daff 0%, #b6fff9 100%);
+}
+
+.button--contained.button--medigreen:not(.is-disabled),
+.button--contained.button--medigreen.is-loading {
+  @apply text-white-normal bg-medigreen;
+}
+
+.button--contained.button--red:not(.is-disabled),
+.button--contained.button--red.is-loading {
+  @apply text-white-normal bg-[#DA2D2B];
+}
+.button--contained.button--red:hover:not(.is-disabled),
+.button--contained.button--red:hover:not(.is-loading),
+.button--contained.button--red:focus-visible:not(.is-disabled),
+.button--contained.button--red:focus-visible:not(.is-loading) {
+  background: #b62623;
+}
+
+.button--contained.button--linear-lime:not(.is-disabled),
+.button--contained.button--linear-lime.is-loading {
+  @apply text-medigreen bg-linear-lime;
+}
+.button--contained.button--linear-lime:hover:not(.is-disabled),
+.button--contained.button--linear-lime:hover:not(.is-loading),
+.button--contained.button--linear-lime:focus-visible:not(.is-disabled),
+.button--contained.button--linear-lime:focus-visible:not(.is-loading) {
+  background: #163b56;
+  color: white;
 }
 
 /* text button */
@@ -63,6 +96,14 @@ button.button--text.is-disabled {
 .button--text.button--gray:hover,
 .button--text.button--gray:focus-visible {
   @apply bg-gray-normal bg-opacity-12.5;
+}
+
+.button--text.button--medigreen {
+  @apply bg-medigreen bg-opacity-100 text-white-normal;
+}
+.button--text.button--medigreen:hover,
+.button--text.button--medigreen:focus-visible {
+  @apply bg-medigreen-normal bg-opacity-12.5;
 }
 
 .button--text.button--gradient-blue {
@@ -82,8 +123,6 @@ button.button--text.is-disabled {
 .button--outlined {
   @apply bg-transparent;
 }
-
-
 
 .button__content {
   @apply inline-flex items-center h-full;
@@ -113,7 +152,7 @@ button.button--text.is-disabled {
 }
 
 .button__icon > svg {
-  @apply w-[1.6em] h-[1.6em];
+  @apply w-4 h-4 pr-2;
 }
 
 /** click effect **/
@@ -121,7 +160,7 @@ button.button--text.is-disabled {
   @apply absolute inset-0 rounded-[inherit] opacity-0;
   box-shadow: 0 0 0 6px currentColor;
   transition: 0.4s;
-  content: '';
+  content: "";
 }
 
 .button.button:active:not(.button--text):not(.button--link)::after {

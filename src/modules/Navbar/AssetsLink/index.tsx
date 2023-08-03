@@ -2,7 +2,7 @@ const AssetsLink: React.FC = () => {
   return (
     <div className="hidden lg:flex w-full h-[80px] justify-center items-center bg-medigreen font-[16px] font-normal">
       <div className="flex items-center rounded-[24px] bg-[#DACFCE] bg-opacity-20 py-[13px] px-[28px] space-x-1">
-        <span className="text-orange font-bold">Bridge Your Assets</span>
+        <span className="text-orange font-medium">Bridge Your Assets</span>
         <span className="text-white pl-2">from Conflux Core here:</span>
         <span>
           <a
@@ -27,12 +27,7 @@ const AssetsLink: React.FC = () => {
             </a>
           </span>
           <span>
-            <a
-              className="text-bluegreen underline"
-              target="_blank"
-              href="https://meson.fi"
-              rel="noreferrer"
-            >
+            <a className="text-bluegreen underline" target="_blank" href="https://meson.fi" rel="noreferrer">
               meson.fi
             </a>
           </span>

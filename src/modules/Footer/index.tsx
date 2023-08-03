@@ -37,9 +37,9 @@ const links = [
   },
 ];
 
-function sleep(time: number) {
-  return new Promise((res) => setTimeout(res, time));
-}
+// function sleep(time: number) {
+//   return new Promise((res) => setTimeout(res, time));
+// }
 
 const OtherLinks: React.FC = () => {
   return (
@@ -105,11 +105,7 @@ const AuditInfo: React.FC = () => {
     <div className="flex justify-between text-medigreen space-x-2 items-center">
       <span>Audit by</span>
       <span className="w-20">
-        <NavLink
-          to="https://www.certik.com/projects/swappi-finance"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <NavLink to="https://www.certik.com/projects/swappi-finance" target="_blank" rel="noreferrer">
           <img src={CertikLogo} alt="icon" className="w-full h-full" />
         </NavLink>
       </span>
@@ -120,45 +116,20 @@ const AuditInfo: React.FC = () => {
 const SocialMediaLinks: React.FC = () => {
   return (
     <div className="flex space-x-3 sm:space-x-6">
-      <NavLink
-        to="https://github.com/swappidex"
-        target="_blank"
-        className="w-[18px] h-[18px]"
-        rel="noreferrer"
-      >
+      <NavLink to="https://github.com/swappidex" target="_blank" className="w-[18px] h-[18px]" rel="noreferrer">
         <GithubIcon className="w-full h-full fill-current text-medigreen hover:text-bluegreen" />
       </NavLink>
 
-      <NavLink
-        to="https://t.me/Swappi_DEX"
-        target="_blank"
-        className="w-[18px] h-[18px]"
-        rel="noreferrer"
-      >
+      <NavLink to="https://t.me/Swappi_DEX" target="_blank" className="w-[18px] h-[18px]" rel="noreferrer">
         <TelegramIcon className="w-full h-full fill-current text-medigreen hover:text-bluegreen" />
       </NavLink>
-      <NavLink
-        to="https://twitter.com/SwappiDEX"
-        target="_blank"
-        className="w-[18px] h-[18px]"
-        rel="noreferrer"
-      >
+      <NavLink to="https://twitter.com/SwappiDEX" target="_blank" className="w-[18px] h-[18px]" rel="noreferrer">
         <TiwtterIcon className="w-full h-full fill-current text-medigreen hover:text-bluegreen" />
       </NavLink>
-      <NavLink
-        to="https://www.reddit.com/r/Swappi/"
-        target="_blank"
-        className="w-[18px] h-[18px]"
-        rel="noreferrer"
-      >
+      <NavLink to="https://www.reddit.com/r/Swappi/" target="_blank" className="w-[18px] h-[18px]" rel="noreferrer">
         <RedditIcon className="w-full h-full fill-current text-medigreen hover:text-bluegreen" />
       </NavLink>
-      <NavLink
-        to="https://medium.com/@swappidex"
-        target="_blank"
-        className="w-[18px] h-[18px]"
-        rel="noreferrer"
-      >
+      <NavLink to="https://medium.com/@swappidex" target="_blank" className="w-[18px] h-[18px]" rel="noreferrer">
         <MediumIcon className="w-full h-full fill-current text-medigreen hover:text-bluegreen" />
       </NavLink>
     </div>
@@ -183,7 +154,7 @@ function BlockNumber() {
           target="_blank"
           rel="noopener noreferrer"
           to="https://evmtestnet.confluxscan.io/block/1"
-          className="group relative mr-0.5 text-[11px] text-medigreenfont-medium"
+          className="group relative mr-0.5 text-[11px] text-medigreen font-medium"
         >
           <span className="opacity-50">1&ensp;</span>
         </NavLink>
