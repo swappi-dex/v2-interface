@@ -1,60 +1,67 @@
 import Button from "@components/Button";
-import useAuthConnect, { handleSwitchChain } from "@service/authConnect";
+import useAuthConnect, {
+  handleSwitchChain,
+  AuthConnectStatus,
+} from "@service/authConnect";
 import Popup from "@components/Popup";
-import AuthConnectModal from "@modules/AuthConnectModal";
-import React, { ComponentProps, useState } from "react";
+import React, { type ComponentProps } from "react";
 import { ReactComponent as WrongNetworkIcon } from "@assets/icons/wrong-network.svg";
-import AuthSwitchModal from "@modules/AuthSwitchModal";
+import AuthConnectModal from "./AuthConnectModal";
 
-const TriggerButton: React.FC<React.HTMLAttributes<HTMLElement>> = ({ ...props }) => {
+const AuthConnectButton: React.FC<ComponentProps<typeof Button>> = ({
+  children,
+}) => {
   const { authConnectStatus } = useAuthConnect();
+
+  if (authConnectStatus === AuthConnectStatus.Connected)
+    return children as React.ReactElement;
+
+  if (authConnectStatus === AuthConnectStatus.NotConnected) {
+    return (
+      <Popup
+        trigger={({ triggerProps }) => (
+          <Button
+            {...triggerProps}
+            id="auth-connect-button"
+            type="button"
+            color="medigreen"
+          >
+            Connect Wallet
+          </Button>
+        )}
+      >
+        <AuthConnectModal />
+      </Popup>
+    );
+  }
+
   return (
-    <Button
-      {...props}
-      id="auth-connect-button"
-      type="button"
-      color={
-        authConnectStatus === "not-chainMatch" ? "red" : authConnectStatus === "connected" ? "linear-lime" : "medigreen"
-      }
-    >
-      {authConnectStatus === "not-connected" && "Connect Wallet"}
-      {authConnectStatus === "not-chainMatch" && (
-        <>
-          <WrongNetworkIcon className="h-[16px] w-[16px] mr-[8px]" />
-          Wrong NetWork
-        </>
-      )}
+    <Button id="auth-switch-button" onClick={handleSwitchChain} color="red">
+      <WrongNetworkIcon className="h-[16px] w-[16px] mr-[8px]" />
+      Wrong NetWork
     </Button>
   );
 };
 
-const AuthConnectButton: React.FC<ComponentProps<typeof Button>> = ({ children }) => {
-  const { authConnectStatus } = useAuthConnect();
-  const [open, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    if (authConnectStatus === "not-chainMatch") {
-      handleSwitchChain();
-    } else {
-      setIsOpen(true);
-    }
-  };
-
-  if (authConnectStatus === "connected") return children as React.ReactElement;
+export const ChangeWalletButton: React.FC<
+  ComponentProps<typeof Button>
+> = () => {
   return (
-    <>
-      <Popup
-        title="Connect Wallet"
-        open={open}
-        // trigger={({ triggerProps }) => (
-        //   <TriggerButton {...(authConnectStatus === "not-chainMatch" ? handleClick : triggerProps)} />
-        // )}
-      >
-        {authConnectStatus === "not-connected" && <AuthConnectModal />}
-        {authConnectStatus === "connected" && <AuthSwitchModal />}
-      </Popup>
-      <TriggerButton onClick={handleClick} />
-    </>
+    <Popup
+      title="Change Wallet"
+      trigger={({ triggerProps }) => (
+        <Button
+          {...triggerProps}
+          id="change-wallet-button"
+          type="button"
+          color="gray"
+        >
+          Change
+        </Button>
+      )}
+    >
+      <AuthConnectModal changeWallet/>
+    </Popup>
   );
 };
 

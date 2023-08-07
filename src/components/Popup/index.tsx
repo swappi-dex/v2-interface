@@ -4,7 +4,7 @@ import { type ComponentProps, type PropsWithChildren } from "react";
 import CloseIcon from "@assets/icons/close.svg";
 
 interface Props extends Omit<ComponentProps<typeof Modal>, "children"> {
-  title: string;
+  title?: string;
 }
 
 const Popup: React.FC<PropsWithChildren<Props>> = ({ children, title, ...props }) => {
