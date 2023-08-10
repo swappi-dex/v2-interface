@@ -7,7 +7,7 @@ import "./index.css";
 export interface Props extends ComponentProps<"button"> {
   variant?: "contained" | "text" | "outlined";
   color?: "gradient-blue" | "gray" | "transparent" | "medigreen" | "red" | "linear-lime";
-  size?: "normal" | "large";
+  size?: "normal" | "large" | "small";
   fullWidth?: boolean;
   loading?: boolean | "start" | "end";
   icon?: ReactNode;

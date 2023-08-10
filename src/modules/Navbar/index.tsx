@@ -5,10 +5,11 @@ import AssetsLink from "./AssetsLink";
 import NavMenu from "./NavMenu";
 import AuthConnectButton from "@modules/AuthConnectButton";
 import { ReactComponent as WalletIcon } from "@assets/icons/wallet.svg";
-import Icon from "@assets/icons/wallet.svg";
 import { shortenEthereumAddress } from "@cfx-kit/dapp-utils/dist/address";
 import useAuthConnect from "@service/authConnect";
 import Button from "@components/Button";
+import Popup from "@components/Popup";
+import AuthConnectModal from "@modules/AuthConnectButton/AuthConnectModal";
 
 const NetworkInfo: React.FC = () => {
   return (
@@ -47,9 +48,20 @@ const NavBar: React.FC = () => {
         <NetworkInfo />
         <AuthConnectButton>
           {authConnectStatus === "connected" && (
-            <Button color="linear-lime" className=" text-medigreen hover:text-white group" startIcon={<WalletIcon />}>
-              {shortenEthereumAddress(account)}
-            </Button>
+            <Popup
+              trigger={({ triggerProps }) => (
+                <Button
+                  {...triggerProps}
+                  color="linear-lime"
+                  className=" text-medigreen hover:text-white group"
+                  startIcon={<WalletIcon />}
+                >
+                  {shortenEthereumAddress(account)}
+                </Button>
+              )}
+              children={[<AuthConnectModal />]}
+              title={["Account", "return"]}
+            />
           )}
         </AuthConnectButton>
       </div>
